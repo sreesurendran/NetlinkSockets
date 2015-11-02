@@ -52,7 +52,7 @@ int __init my_init(void){
     };    
     nl_sk = netlink_kernel_create(&init_net, NETLINK_USER, &cfg);
 #else
-    nl_sk = netlink_kernel_create(&init_net, NETLINK_USER, 0, nl_recv_msg, NULL, THIS_MODULE);
+    nl_sk = netlink_kernel_create(&init_net, NETLINK_USER, 0, nl_rcv_msg, NULL, THIS_MODULE);
 #endif
     if(!nl_sk){
         printk(KERN_ALERT "Error creating socket\n");
